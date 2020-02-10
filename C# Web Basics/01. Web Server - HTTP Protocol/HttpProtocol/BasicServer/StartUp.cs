@@ -2,12 +2,13 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BasicServer
 {
     class StartUp 
     {
-        static void Main()
+        static async Task Main()
         {
             const string NewLine = "\r\n";
 
