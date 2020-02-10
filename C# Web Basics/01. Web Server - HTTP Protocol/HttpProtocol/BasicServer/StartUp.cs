@@ -39,7 +39,7 @@ namespace BasicServer
                                     // + "Content-Disposition: attachment; filename=emilia.html" + NewLine
                                     // + "Location: https://google.com" + NewLine
                                     + "Content-Type: text/html" + NewLine
-                                    + $"Content-Length: {responseText.Length}" + NewLine
+                                    + $"Content-Length: {responseText.Length + responseForm.Length}" + NewLine
                                     + NewLine
                                     + responseText + responseForm;
                     byte[] responseBytes = Encoding.UTF8.GetBytes(response);
