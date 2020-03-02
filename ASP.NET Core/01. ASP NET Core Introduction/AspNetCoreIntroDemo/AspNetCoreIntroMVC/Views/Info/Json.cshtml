@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Json";
+}
+
+<h1>Json</h1>
+
+<form method="get" asp-controller="Info" asp-action="Json">
+    <div class="form-group">
+        <label for="username">Search By Email: </label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Search By Username">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
