@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreIntroMVC.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,18 @@ namespace AspNetCoreIntroMVC.Controllers
         public IActionResult Redirect()
         {
             return this.RedirectToAction("Home", "Home");
+        }
+
+        [Route("/model")]
+        public IActionResult Model()
+        {
+            List<Person> people = new List<Person>
+            {
+                new Person() { Name = "Pesho" },
+                new Person() { Name = "Gosho" }
+            };
+
+            return this.View(people);
         }
     }
 }
