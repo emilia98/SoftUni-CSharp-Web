@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>Passing data in ASP.NET Core MVC</p>
+<ul>
+    <li><code>ViewModels - just a class with properties (best practice)</code></li>
+    <li><code>ViewData - Dictionary</code></li>
+    <li><code>ViewBag - dynamic</code></li>
+</ul>
+
+
+<div>
+    <a class="btn btn-primary" asp-controller="Data" asp-action="ViewModel">ViewModel</a>
+    <a class="btn btn-info" asp-controller="Data" asp-action="ViewDataDemo">ViewData</a>
+    <a class="btn btn-warning" asp-controller="Data" asp-action="ViewBagDemo">ViewBag</a>
+</div>
