@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DemoApp.VIewModels.Data;
+using DemoApp.ViewModels.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoApp.Controllers
@@ -40,5 +40,11 @@ namespace DemoApp.Controllers
         }
 
         //TODO: Action for comparing values of ViewData and ViewBag (in the given order)
+        public IActionResult Diff()
+        {
+            this.ViewData["Value"] = "First";
+            this.ViewBag.value = "Second";
+            return View();
+        }
     }
 }

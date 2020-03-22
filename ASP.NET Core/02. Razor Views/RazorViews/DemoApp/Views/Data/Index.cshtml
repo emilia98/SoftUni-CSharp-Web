@@ -11,10 +11,14 @@
     <li><code>ViewData - Dictionary</code></li>
     <li><code>ViewBag - dynamic</code></li>
 </ul>
+<p>
+    When using <code>ViewData</code> and <code>ViewBag</code> with a property with the same name (case-insensitive), the second used will overwrite the first.
+</p>
 
 
 <div>
     <a class="btn btn-primary" asp-controller="Data" asp-action="ViewModel">ViewModel</a>
     <a class="btn btn-info" asp-controller="Data" asp-action="ViewDataDemo">ViewData</a>
     <a class="btn btn-warning" asp-controller="Data" asp-action="ViewBagDemo">ViewBag</a>
+    <a class="btn btn-danger" asp-controller="Data" asp-action="Diff">Differences</a>
 </div>

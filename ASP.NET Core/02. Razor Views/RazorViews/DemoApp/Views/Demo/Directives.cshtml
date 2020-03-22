@@ -1,0 +1,27 @@
+﻿@using DemoApp.ViewModels.Data
+@using DemoApp.Services;
+@model IndexViewModel
+@inject IStringManipulation StringManipulation
+@{
+    ViewData["Title"] = "Directives";
+}
+
+    <div class="text-center">
+        <h1>Directives</h1>
+
+        <div>
+            <p><code class="font-weight-bold">@@using</code> - for including namespaces into views</p>
+            <p><code class="font-weight-bold">@@model</code> - for defining the model of the view</p>
+            <p><code class="font-weight-bold">@@inject</code> - for injecting a service into the view</p>
+        </div>
+
+        <div>
+            <h2 class="display-4">Results</h2>
+            @foreach(var name in Model.Names)
+            {
+                <p>@StringManipulation.MakeFirstLetterUpper(name)</p>
+            }
+        </div>
+    </div>
+
+

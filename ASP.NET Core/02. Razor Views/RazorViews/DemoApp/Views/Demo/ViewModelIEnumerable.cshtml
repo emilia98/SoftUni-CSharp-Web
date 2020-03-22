@@ -1,0 +1,13 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "ViewModelIEnumerable";
+}
+
+    <div class="text-center">
+        <h1 class="display-3">ViewModelIEnumerable</h1>
+
+            @foreach (var name in Model)
+            {
+               <h2 class="display-4">@name</h2>
+            }
+    </div>

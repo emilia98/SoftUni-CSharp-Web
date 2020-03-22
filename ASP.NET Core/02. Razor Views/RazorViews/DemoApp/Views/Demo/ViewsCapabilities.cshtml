@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "ViewsCapabilities";
+}
+
+<h1>ViewsCapabilities</h1>
+<p>
+    Get the path from request in the action <code>@this.ViewData["Path"]</code>
+</p>
+<p>Get the headers from request in view <code> @this.Context.Request.Headers["User-Agent"]</code></p>
+<p>
+    @{ 
+        var cookie = this.Context.Response.Headers["Set-Cookie"];
+    }
+    Get all the cookies from the response <code>@cookie</code>
+</p>

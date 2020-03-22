@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <code>TempData</code> - allow us to pass data only to the next request and it is stored on the server
+</p>
+<p>
+    <code>return View()</code>
+</p>
+<p>
+    <code>return View(viewName)</code>
+</p>
+<p>
+    <code>return View(viewModelInstance)</code>
+</p>
+<p>
+    <code>return View(viewName, viewModelInstance)</code>
+</p>
+
+<div>
+    <a class="btn btn-light" asp-controller="Demo" asp-action="ViewsCapabilities">Views Capabilities</a>
+    <a class="btn btn-success" asp-controller="Demo" asp-action="ViewModelIEnumerable">View Model IEnumerable</a>
+    <a class="btn btn-primary" asp-controller="Demo" asp-action="ViewModelClass">View Model Class</a>
+    <a class="btn btn-warning" asp-controller="Demo" asp-action="ShowViewAnotherFolder">Show View From Another Folder</a>
+    <a class="btn btn-danger" asp-controller="Demo" asp-action="HtmlRaw">Html Raw</a>
+    <a class="btn btn-info" asp-controller="Demo" asp-action="Hacks">Hacks</a>
+    <a class="btn btn-dark" asp-controller="Demo" asp-action="Directives">Directives</a>
+</div>

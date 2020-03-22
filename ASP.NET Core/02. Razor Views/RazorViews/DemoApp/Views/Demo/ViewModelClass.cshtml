@@ -1,0 +1,15 @@
+﻿@model DemoApp.ViewModels.Data.IndexViewModel
+@{
+    ViewData["Title"] = "ViewModelClass";
+}
+
+<div class="text-center">
+    <h1 class="display-3">ViewModelClass</h1>
+
+    @foreach (var name in Model.Names)
+    {
+        <h2 class="display-4">@name</h2>
+    }
+
+    <h3 class="display-4">@Model.AllNames</h3>
+</div>

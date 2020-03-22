@@ -1,0 +1,17 @@
+﻿@model DemoApp.ViewModels.Data.IndexViewModel
+@{
+    ViewData["Title"] = "HtmlRaw";
+}
+
+    <div class="text-center">
+        <h1 class="display-3">HtmlRaw</h1>
+        <h2 class="display-4">@Model.Message</h2>
+        <h2 class="display-4">@Html.Raw(Model.Message)</h2>
+
+        <div>
+            <code>@Model.Description</code>
+        </div>
+        <div>
+            <code>@Html.Raw(Model.Description)</code>
+        </div>
+    </div>

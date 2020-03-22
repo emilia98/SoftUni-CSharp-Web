@@ -1,0 +1,48 @@
+﻿@using DemoApp.ViewModels.Demo;
+@model DemoViewModel
+@{
+    ViewData["Title"] = "Hacks";
+}
+
+    <div class="text-center">
+        <h1 class="display-3">Hacks</h1>
+
+        <div>
+            <p>
+                <code>@@:</code> - prints text, when we are in C# code block
+            </p>
+            <p>
+                <code>@("<text></text>") - indicates that we want to print a text in C# code block (no tag is printed as a result)</code>
+            </p>
+            <p>
+                <code>@("@@") - escaping @@</code>
+            </p>
+            <p>
+                Use <code>"(", ")"</code> in expressions
+            </p>
+        </div>
+
+        <div>
+            <h2 class="display-4">Results:</h2>
+            <p>
+                someEmail@@softuni.bg
+            </p>
+            <p>
+                @Model.Year  + 1
+            </p>
+            <p>
+                @(Model.Year + 1)
+            </p>
+
+            @if (Model.Products.Count() == 0)
+            {
+                <text>No products to show</text>
+            }
+            else
+            {
+                @:List of products: <span class="font-weight-bold">@Model.Stringify</span>
+            }
+        </div>
+    </div>
+
+
