@@ -1,0 +1,15 @@
+﻿@model int
+@{
+    ViewData["Title"] = "_CurrentYearPartial";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">_CurrentYearPartial</h1>
+        <h2>@ViewData["Demo"]</h2>
+
+        <div class="row">
+            <div class="col-md-4">Current year: </div>
+            <div class="col-md-4">@DateTime.UtcNow.Year</div>
+            <div class="col-md-4">@Model</div>
+        </div>
+    </div>

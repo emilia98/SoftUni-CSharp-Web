@@ -1,0 +1,8 @@
+﻿@model DemoApp.ViewModels.NavBar.NavBarViewModel
+
+@foreach (var year in Model.Years.Reverse())
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="https://google.com/search?q=@year" target="_blank">@year</a>
+    </li>
+}

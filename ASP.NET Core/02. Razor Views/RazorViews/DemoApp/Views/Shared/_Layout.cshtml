@@ -30,6 +30,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Demo" asp-action="Index">Demo</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Func" asp-action="Index">Func</a>
+                        </li>
+                        <vc:nav-bar count="3"></vc:nav-bar>
+                        @if (!IsSectionDefined("Links"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="https://google.com">Google</a>
+                            </li>
+                        }
+                        else
+                        {
+                            @RenderSection("Links", false)
+                        }
+
                     </ul>
                 </div>
             </div>

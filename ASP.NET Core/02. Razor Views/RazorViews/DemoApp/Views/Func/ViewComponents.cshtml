@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "ViewComponents";
+}
+
+<h1>ViewComponents</h1>
+
+<div>
+    <p>View Components have their own "Controller" and View</p>
+    <p>Render a chunk, not a whole view (typically invoked from a <code>_Layout</code>), similar to partial views</p>
+    <p>They are intended to use anywhere, where we have a reusable rendering logic that's too complex for a partial view</p>
+    <p>They do not have an action and do not return a result from a given Request.</p>
+    <p>
+        <span>Typical usage: </span>
+        <ul>
+            <li>
+                <code>dynamic navigation menus</code>
+            </li>
+            <li>
+                <code>login panels</code>
+            </li>
+            <li>
+                <code>shopping carts</code>
+            </li>
+            <li>
+                <code>sidebar content</code>
+            </li>
+            <li>
+                <code>recently published articles</code>
+            </li>
+            <li>
+                <code>tag cloud</code>
+            </li>
+        </ul>
+    </p>
+    <p>
+        <span>View Components consist of 2 parts:</span>
+        <ul>
+            <li>a <code>class</code> - typically derived from <code>ViewComponent</code> (we can create a folder <code>ViewComponents/NameOfTheComponent.cs</code>)</li>
+            <li>a <code>view</code> - typically a <code>View</code> (located in <code>Views/Shared/Components/NameOfTheViewComponent/Default.cshtml</code>)</li>
+        </ul>
+    </p>
+    <p>
+        Rendering the view component <code>@("<vc:viewComponentName></vc:viewComponentName>")</code>
+    </p>
+</div>

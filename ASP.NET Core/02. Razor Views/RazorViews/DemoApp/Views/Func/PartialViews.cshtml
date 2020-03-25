@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "PartialViews";
+}
+
+    <div>
+        <h1 class="display-3 text-center">PartialViews</h1>
+
+        <div>
+            <div>
+                <p>Conventions</p>
+                <ul>
+                    <li>Put the view in <code>_Shared</code> folder - the partial view can be accessed by all the views</li>
+                    <li>Put the view in ex. <code>Home</code> folder - the partial view can be accessed by all the view in <code>Home</code> folder</li>
+                    <li>Naming convention - <code>_NamePartial.cshtml</code></li>
+                    <li>Included in a view <code>@("<partial name=\"_NamePartial\" model=\"2021\" view-data=\"ViewData\"/>")</code> (equivalent to <code>@@await Html.PartialAsync("_CurrentYearPartial")</code>)</li>
+                    <li>The partial views <strong>COULD</strong> have a model</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <partial name="_CurrentYearPartial" model="2021" view-data="ViewData"/>
+    @await  Html.PartialAsync("_CurrentYearPartial")
+

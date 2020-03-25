@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Section";
+}
+
+    <div >
+        <h1 class="display-3 text-center">Section</h1>
+
+        <div>
+            <p>
+                <code>
+                    <span class="d-block">@@section SectionName {</span>
+                    <span class="d-block">&nbsp;&nbsp;&nbsp; ...some code here</span>
+                    <span class="d-block">}</span>
+                </code>
+                <span>- defining a section in the view</span>
+            </p>
+            <p>
+                <code>
+                    <span class="d-block">@@RenderSection("SectionName")</span>
+                </code>
+                <span>- use the section with this name in the view/views where it's declared</span>
+            </p>
+            <p>
+                <code>
+                    <span class="d-block">IsSectionDefined("SectionName")</span>
+                </code>
+                <span>- check whether a section has been defined in the view</span>
+            </p>
+        </div>
+    </div>
+
+
+@section Links {
+    <li class="nav-item">
+        <a class="nav-link text-danger" asp-controller="Func" asp-action="Index">Func</a>
+    </li>
+}

@@ -1,0 +1,52 @@
+﻿@model DemoApp.ViewModels.Data.IndexViewModel
+@{
+    ViewData["Title"] = "HtmlHelpers";
+}
+
+    <div>
+        <h1 class="display-3 text-center">HtmlHelpers</h1>
+
+        <div class="mb-5">
+            @Html.TextAreaFor(m => m.Message)
+            <code>
+                <span class="d-block">@@Html.TextAreaFor(m => m.Message)</span>
+            </code>
+            <p>- generates a textarea, using the model property Message</p>
+        </div>
+        <div class="mb-5">
+            @Html.EditorFor(m => m.Message)
+            <code>
+                <span class="d-block">@@Html.EditorFor(m => m.Message)</span>
+            </code>
+            <p>- generates an input field with the type of the model property Message (string)</p>
+        </div>
+        <div class="mb-5">
+            @Html.EditorFor(m => m.Year)
+            <code>
+                <span class="d-block">@@Html.EditorFor(m => m.Year)</span>
+            </code>
+            <p>- generates an input field with the type of the model property Year (int)</p>
+        </div>
+        <div class="mb-5">
+            @Html.Raw("<script>alert(\"Hacked\");</script>")
+            <code>
+                <span class="d-block">@@Html.Raw()</span>
+            </code>
+        </div>
+        <div class="mb-5">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-check" }))
+            {
+
+            }
+            <code>
+                <span class="d-block">
+                    @@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @@class = "form-check" }))
+                    {
+
+                    }
+                </span>
+            </code>
+            <p>- Automatically generates CSRF token</p>
+        </div>
+        
+    </div>
