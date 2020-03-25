@@ -88,5 +88,20 @@ namespace DemoApp.Controllers
 
             return View(model);
         }
+
+        public IActionResult ChangeLayout()
+        {
+            return View();
+        }
+
+        public IActionResult SpecialFiles()
+        {
+            return View();
+        }
+
+        public IActionResult Comments()
+        {
+            return View();
+        }
     }
 }

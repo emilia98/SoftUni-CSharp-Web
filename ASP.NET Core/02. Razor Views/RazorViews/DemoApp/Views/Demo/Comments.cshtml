@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Comments";
+}
+
+    <div>
+        <h1 class="display-3 text-center">Comments</h1>
+
+        <div>
+            <p>
+                <code>@@* A Razor Comment *@@</code> - a comment in the view (commenting code in the view, it does not show in the final HTML)
+            </p>
+            <p>
+                <code>@("<!-- HTML Comment -->")</code> - a standard HTML comment (show in the final HTML)
+            </p>
+            <p>
+                <span class="d-block"><code>@@{</code></span>
+                <span class="d-block"><code>&nbsp;&nbsp;&nbsp;// A C# comment</code></span>
+                <span class="d-block"><code>&nbsp;&nbsp;&nbsp;/* A Multi</code></span>
+                <span class="d-block"><code>&nbsp;&nbsp;&nbsp;line C# comment</code></span>
+                <span class="d-block"><code>&nbsp;&nbsp;&nbsp;*/</code></span>
+                <span class="d-block"><code>}</code></span>
+                - a standard C# comment, used in a code block
+            </p>
+        </div>
+    </div>
