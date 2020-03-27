@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "ModelBinding";
+}
+
+    <div>
+        <h1 class="display-3 text-center">ModelBinding</h1>
+
+        <div>
+            <ul class="custom-ul">
+                <li>Model Binding - maps data from HTTP Request (from headers, from body, from address of the request and sometimes in services and other places) to action method parameters</li>
+                <li>Parameters may be primitive types or complex types</li>
+                <li>ASP.NET Core MVC binds the request data to action parameters, searching by <code>name</code></li>
+                <li>When using a complex type - a class for example, the class is mapped using the names of the <code>public settable properties</code></li>
+                <li>
+                    Model binding search through several places for binding data from the Request
+                    <ul class="custom-inner-ul">
+                        <li><code>Form values</code> (1st priority) - POST request parameters (in the body of the request)</li>
+                        <li><code>Route values</code> (2nd priority) - The set of route values, provided by the Routing</li>
+                        <li><code>Query Strings</code> (3rd priority) - The query string parameters in the URL</li>
+                        <li><code>Headers, Cookies, Session</code> - With <strong>custom model binders</strong></li>
+                    </ul>
+                </li>
+                <li>The data from these sources is stored in key-value pairs</li>
+                <li>
+                    If the binding fails, ASP.NET Core MVC <strong>does not throw an exception. It populates what could be populated</strong>
+                </li>
+                <li>
+                    The validator populates the <code>ModelState</code>
+                </li>
+                <li>Every action, accepting <code>user input</code>, should check if binding was successful. This is done through the <code>ModelState.IsValid</code> property
+                </li>
+                <li>
+                    <code>ModelStateEntry</code> is a property of a <code>ModelState</code>. Each <code>ModelStateEntry</code> contains an Errors property
+                </li>
+                <li>
+                    Build-in Model Binding Attributes
+                    <ul class="custom-inner-ul">
+                        <li>
+                            <code>[BindRequired]</code> <span>- Adds a model state error if binding cannot occur</span>
+                        </li>
+                        <li>
+                            <code>[BindNever]</code> <span>- Tells the model binder to never bind this parameter</span>
+                        </li>
+                        <li>
+                            <code>[From{source}]</code> <span>- Used to specify the exact binding source - <code>[FromHeader]</code>, <code>[FromQuery]</code>, <code>[FromRoute]</code>, <code>[FromForm]</code></span>
+                        </li>
+                        <li>
+                            <code>[FromServices]</code> <span>- Uses dependency injection to bind parameters from services.</span>
+                        </li>
+                        <li>
+                            <code>[FromBody]</code> <span>- If the body of the request is sent as JSON, deserialize the JSON and the bind it</span>
+                        </li>
+                        <li>
+                            <code>[ModelBinder]</code> <span>- Used to override the default model binder, binding source and name</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div>
+        <h1 class="display-3 text-center">Index</h1>
+
+        <div>
+            <a class="btn btn-info" asp-controller="ModelBinding" asp-action="Simple" asp-route-id="123">Simple</a>
+            <a class="btn btn-primary" href="/ModelBinding/InputModel/123?id=7&name=Niki&years=5&years=-5">Input Model</a>
+            <a class="btn btn-light" href="/ModelBinding/InputModel/123?id=7&name=Niki&years[0]=5&years[1]=-5">Input Model</a>
+            <a class="btn btn-warning" href="/ModelBinding/InnerInputModel/?id=1&years=2020&Names.FirstName=Niki&Names.LastName=Kostov">With Inner Input Model</a>
+        </div>
+    </div>
+
+
