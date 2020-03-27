@@ -46,13 +46,16 @@
                             <code>[From{source}]</code> <span>- Used to specify the exact binding source - <code>[FromHeader]</code>, <code>[FromQuery]</code>, <code>[FromRoute]</code>, <code>[FromForm]</code></span>
                         </li>
                         <li>
-                            <code>[FromServices]</code> <span>- Uses dependency injection to bind parameters from services.</span>
+                            <code>[FromServices]</code> <span>- Uses dependency injection to bind parameters from services (not recommended)</span>
                         </li>
                         <li>
                             <code>[FromBody]</code> <span>- If the body of the request is sent as JSON, deserialize the JSON and the bind it</span>
                         </li>
                         <li>
                             <code>[ModelBinder]</code> <span>- Used to override the default model binder, binding source and name</span>
+                        </li>
+                        <li>
+                            <code>[Bind("property")] <span>- Binds only the properties listed</span></code>
                         </li>
                     </ul>
                 </li>

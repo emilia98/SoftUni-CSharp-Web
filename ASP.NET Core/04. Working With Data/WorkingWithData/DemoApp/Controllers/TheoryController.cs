@@ -17,5 +17,10 @@ namespace DemoApp.Controllers
         {
             return View();
         }
+
+        public IActionResult CustomModelBinder()
+        {
+            return View();
+        }
     }
 }

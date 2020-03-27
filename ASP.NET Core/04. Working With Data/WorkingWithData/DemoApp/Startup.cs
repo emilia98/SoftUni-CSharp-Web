@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DemoApp.ModelBinders;
+using DemoApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,7 +25,14 @@ namespace DemoApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(configure =>
+            {
+                // Should be with highest priority (inserted at first position),
+                // because otherwise some other model binder provider will be executed
+                configure.ModelBinderProviders.Insert(0,
+                    new YearModelBinderProvider());
+            });
+            services.AddTransient<IYearsService, YearsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

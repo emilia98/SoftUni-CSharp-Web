@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DemoApp.Models.InputModels;
+using DemoApp.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoApp.Controllers
@@ -30,6 +28,27 @@ namespace DemoApp.Controllers
         {
 
             return Json(new { input, accept});
+        }
+
+        public IActionResult FromServiceAttribute([FromServices]IYearsService years)
+        {
+            return Json(years.GetLastYears(5));
+        }
+
+        // Parameter tampering
+        public IActionResult Bind([Bind("Names")]OuterInputModel input)
+        {
+            return Json(input);
+        }
+
+        public IActionResult CustomModelBinder(CustomModelBinderInputModel input)
+        {
+            return Json(input);
+        }
+
+        public IActionResult CustomModelBinderProvider(CustomModelBinderInputModel input)
+        {
+            return Json(input);
         }
     }
 }

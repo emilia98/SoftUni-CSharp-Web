@@ -11,6 +11,10 @@
             <a class="btn btn-primary" href="/ModelBinding/InputModel/123?id=7&name=Niki&years=5&years=-5">Input Model</a>
             <a class="btn btn-light" href="/ModelBinding/InputModel/123?id=7&name=Niki&years[0]=5&years[1]=-5">Input Model</a>
             <a class="btn btn-warning" href="/ModelBinding/InnerInputModel/?id=1&years=2020&Names.FirstName=Niki&Names.LastName=Kostov">With Inner Input Model</a>
+            <a class="btn btn-danger" asp-controller="ModelBinding" asp-action="FromServiceAttribute">[FromService]</a>
+            <a class="btn btn-dark" href="/ModelBinding/Bind/?id=1&years=2020&Names.FirstName=Niki&Names.LastName=Kostov">[Bind]</a>
+            <a class="btn btn-success" href="/ModelBinding/CustomModelBinder/?date=03-27-2020">Custom Model Binder</a>
+            <a class="btn btn-primary" href="/ModelBinding/CustomModelBinder/?date=03-27-2020">Model Binder Provider</a>
         </div>
     </div>
 
