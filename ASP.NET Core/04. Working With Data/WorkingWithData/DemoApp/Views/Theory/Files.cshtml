@@ -3,11 +3,21 @@
     ViewData["Title"] = "Files";
 }
 
-<h1>Files</h1>
+    <div>
+        <h1 class="display-3 text-center">Files</h1>
 
-<div>
-    <p>
-        When working with files, to the <code>@("form tag")</code> should be added  <strong><code>enctype="multipart/form-data"</code></strong> attribute
-    </p>
-</div>
-
+        <div>
+            <ul class="custom-ul">
+                <li class="mt-3">
+                    When working with files, to the <strong><code>@("form tag")</code></strong> should be added  <strong><code>enctype="multipart/form-data"</code></strong> attribute
+                </li>
+                <li class="mt-3">
+                    <span>Using files in input models</span>
+                    <ul class="custom-inner-ul">
+                        <li class="mt-2"><strong><code>IFormFile</code></strong> - for <strong>one</strong> file</li>
+                        <li class="mt-2"><strong><code>IEnumerable<IFormFile></code></strong> - for <strong>multiple</strong> files</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
