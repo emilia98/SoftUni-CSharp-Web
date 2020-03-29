@@ -2,12 +2,11 @@
 
 namespace DemoApp.Models.InputModels
 {
-    public class NamesInputModel
+    public class ValidationNamesInputModel
     {
-        [Display(Name = "First Name")]
+        [Required]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
         public string LastName { get; set; }
     }
 }

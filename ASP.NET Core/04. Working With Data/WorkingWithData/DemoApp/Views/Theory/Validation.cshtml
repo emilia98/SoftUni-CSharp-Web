@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Validation";
+}
+
+    <div>
+        <h1 class="display-3 text-center">Validation</h1>
+
+        <div>
+            <ul class="custom-ul">
+                <li class="mt-3">
+                    <span>Validation is absolutely necessary before persisting data in database, because:</span>
+                    <ul class="custom-inner-ul">
+                        <li>There is a chance of possible security threats</li>
+                        <li>There may be malformed data (type, size, data constraints)</li>
+                    </ul>
+                </li>
+                <li class="mt-3">
+                    In ASP.NET Core MVC, the validation happens both on client and server
+                </li>
+                <li class="mt-3">
+                    .NET provides us an abstracted validation through <strong>attributes</strong>. Some attributes configure model validation by <strong>constraint</strong>. Other apply patterns to data to enforce <strong>business rules - credit cards, phone numbers, email addresses</strong>
+                </li>
+                <li class="mt-3">
+                    Validation attributes are specified at <strong>property</strong> or <strong>parameter</strong> level
+                </li>
+                <li>
+                    <span>Some of the most popular built-in validation attributes are:</span>
+                    <ul class="custom-inner-ul">
+                        <li>
+                            <code>[CreditCard]</code> <span>- The property has a <strong>credit card</strong> format</span>
+                        </li>
+                        <li>
+                            <code>[Compare]</code> <span>- Checks if 2 properties in a model <strong>match</strong>. Useful for <strong>password confirmation</strong></span>
+                        </li>
+                        <li>
+                            <code>[EmailAddress]</code> <span>- The propery has an <strong>email</strong> format (combine it with [Required])</span>
+                        </li>
+                        <li>
+                            <code>[Phone]</code> <span>- The property has a <strong>telephone</strong> format</span>
+                        </li>
+                        <li>
+                            <code>[Range]</code> <span>- The value of the property is within <strong>given range</strong></span>
+                        </li>
+                        <li>
+                            <code>[RegularExpression]</code> <span>- Validates if the data <strong>matches</strong> the specified <strong>regular expression</strong></span>
+                        </li>
+                        <li>
+                            <code>[Required]</code> <span>- Makes the prperty <strong>required</strong>. Value <strong>CANNOT</strong> be <strong>null</strong></span>
+                        </li>
+                        <li>
+                            <code>[StringLength]</code> <span>- Validates if a string property has at most the <strong>given maximum length</strong></span>
+                        </li>
+                        <li>
+                            <code>[Url]</code> <span>- The property has a <strong>URL</strong> format</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>

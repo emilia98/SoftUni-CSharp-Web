@@ -2,11 +2,12 @@
 
 namespace DemoApp.Models.InputModels
 {
-    public class OuterInputModel
+    public class ValidationInputModel
     {
         public int Id { get; set; }
 
-        public NamesInputModel Names { get; set; }
+        [Required]
+        public ValidationNamesInputModel Names { get; set; }
 
         public int[] Years { get; set; }
     }
