@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DemoApp.ValidationAttributes;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DemoApp.Models.InputModels
@@ -21,8 +24,7 @@ namespace DemoApp.Models.InputModels
         public string Email { get; set; }
 
         [Required]
-        [StringLength(10, MinimumLength = 10)]
-        [RegularExpression("[0-9]{10}", ErrorMessage = "Невалидно ЕГН!")]
+        [EGNValidation]
         [Display(Name = "EGN")]
         public string Egn { get; set; }
 
@@ -34,15 +36,14 @@ namespace DemoApp.Models.InputModels
         [Range(1, int.MaxValue)]
         public int YearsOfExperience { get; set; }
 
+        [Required]
         [Display(Name = "Candidate Type")]
         public CandidateType CandidateType { get; set; }
-    }
 
-    public enum CandidateType
-    {
-        JuniorDeveloper = 1,
-        RegularDeveloper = 2,
-        SeniorDeveloper = 3,
-        JuniorQA = 4
+        [Required]
+        [Display(Name = "Cities")]
+        public int City { get; set; }
+
+        public IEnumerable<SelectListItem> Cities { get; set; }
     }
 }

@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DemoApp.Models.InputModels;
+using DemoApp.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoApp.Controllers
 {
     public class ValidationController : Controller
     {
+        private readonly ICityService service;
+
+        public ValidationController(ICityService service)
+        {
+            this.service = service;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -36,7 +44,12 @@ namespace DemoApp.Controllers
 
         public IActionResult JobForm()
         {
-            return View();
+            var model = new JobFormInputModel
+            {
+                University = "SoftUni",
+                Cities = this.service.GetAll()
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -44,6 +57,7 @@ namespace DemoApp.Controllers
         {
             if(!this.ModelState.IsValid)
             {
+                input.Cities = this.service.GetAll();
                 return this.View(input);
             }
 
