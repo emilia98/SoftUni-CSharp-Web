@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DemoApp.Models.InputModels
 {
-    public class JobFormInputModel
+    public class JobFormInputModel : IValidatableObject
     {
         public int Id { get; set; }
 
@@ -45,5 +45,13 @@ namespace DemoApp.Models.InputModels
         public int City { get; set; }
 
         public IEnumerable<SelectListItem> Cities { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if(int.Parse(this.Egn.Substring(0, 2)) != this.DateOfBirth.Year % 100)
+            {
+                yield return new ValidationResult("Годината на раждане и ЕГН-то не са валидна комбинация!");
+            }
+        }
     }
 }

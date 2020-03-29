@@ -55,6 +55,12 @@ namespace DemoApp.Controllers
         [HttpPost]
         public IActionResult JobForm(JobFormInputModel input)
         {
+            if(input.City > 3)
+            {
+                // this.ModelState.AddModelError("City", "Невалиден град!");
+                this.ModelState.AddModelError(nameof(JobFormInputModel.City), "Невалиден град!");
+            }
+
             if(!this.ModelState.IsValid)
             {
                 input.Cities = this.service.GetAll();

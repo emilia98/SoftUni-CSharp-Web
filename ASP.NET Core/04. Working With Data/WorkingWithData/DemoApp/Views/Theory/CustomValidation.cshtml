@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "CustomValidation";
+}
+
+    <div>
+        <h1 class="display-3 text-center">CustomValidation</h1>
+
+        <div>
+            <ul class="custom-ul">
+                <li class="mt-3">Validation attributes work for most needs, but sometimes we need to create a custom validations for some properties</li>
+                <li class="mt-3">
+                    <span>Custom Validation Attribute can be created:</span>
+                    <ul class="custom-inner-ul">
+                        <li class="mt-2">Create a <code>class</code>, which <strong>inherits</strong> <strong><code>ValidationAttribute</code></strong></li>
+                        <li class="mt-2">Overrride <code>IsValid</code> method</li>
+                    </ul>
+                </li>
+                <li class="mt-3">
+                    <span>We can <strong>compare two properties</strong> inside the input model:</span>
+                    <ul class="custom-inner-ul">
+                        <li class="mt-2">The input model should <strong>inherit</strong> <strong><code>IValidatableObject</code></strong></li>
+                        <li class="mt-2">Override <code>Validate</code> method</li>
+                    </ul>
+                </li>
+                <li class="mt-3">
+                    <span>We can modify <code>ModelState</code> inside the action of the controller using: </span>
+                    <ul class="custom-inner-ul">
+                        <li class="mt-2"><code>this.ModelState.AddModelError(nameof(TheProperty), ErrorMessage);</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>

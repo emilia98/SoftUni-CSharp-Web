@@ -74,7 +74,7 @@ body {
     list-style-type: "🔷";
 }
 
-.custom-ul li {
+.custom-ul li, .custom-inner-ul li {
     padding-left: 10px;
     margin: 5px;
 }

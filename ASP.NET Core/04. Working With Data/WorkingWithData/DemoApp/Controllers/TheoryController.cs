@@ -27,5 +27,15 @@ namespace DemoApp.Controllers
         {
             return View();
         }
+
+        public IActionResult CustomValidation()
+        {
+            return View();
+        }
+
+        public IActionResult Files()
+        {
+            return View();
+        }
     }
 }
