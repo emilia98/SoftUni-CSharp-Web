@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "UploadForm";
+}
+
+    <div>
+        <h1 class="display-3 text-center mb-5">UploadForm</h1>
+
+        <div class="col-md-6 m-auto">
+            <form asp-controller="Cloudinary" asp-action="UploadForm" enctype="multipart/form-data">
+                <div class="form-group text-center mb-5">
+                    <input type="file" name="files" multiple>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-lg btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+
+        @{
+            var links = this.ViewData["Links"] == null ? new List<string>() : (IEnumerable<string>)this.ViewData["Links"];
+            if (links.Count() > 0)
+            {
+                foreach (var link in links)
+                {
+                    <a href="@link">
+                        <img src="@link" />
+                    </a>
+                }
+            }
+
+        }
+    </div>
