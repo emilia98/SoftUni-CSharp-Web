@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "XhrRequest";
+}
+
+<div>
+    <h1 class="display-3 text-center">XhrRequest</h1>
+
+    <div>
+        <p class="mt-2 mb-2">
+            <code>var xhr = new XMLHttpRequest();</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>xhr.onreadystatechange = function () {</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>&nbsp;&nbsp;if (this.readyState == 4 && this.status == 200) {</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;var result = JSON.parse(this.responseText); \\ parse the response</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;@("document.getElementById(\"placeholderElement\").innerHTML = \"<code> First Name: \" + result.firstName + \"; Last Name: \" + result.lastName + \" </code>\";")</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>&nbsp;&nbsp;}</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>}</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>xhr.open(@("<Method>"), @("<Url>"), @("<IsAsync>");</code>
+        </p>
+        <p class="mt-2 mb-2">
+            <code>xhr.send();</code>
+        </p>
+    </div>
+</div>

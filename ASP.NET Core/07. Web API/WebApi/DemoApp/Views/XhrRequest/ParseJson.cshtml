@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "ParseJson";
+}
+
+<div>
+    <h1 class="display-3 text-center">ParseJson</h1>
+
+    <button class="btn btn-success" onclick="hello()">Click me</button>
+    <div class="mt-2" id="placeholderElement"></div>
+</div>
+
+<script>
+    function hello() {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var result = JSON.parse(this.responseText);
+                document.getElementById("placeholderElement").innerHTML = "<code> First Name: " + result.firstName + "; Last Name: " + result.lastName + " </code>";
+            }
+        }
+
+        xhr.open("GET", "/XhrRequest/JsonTest", true);
+        xhr.send();
+    }
+</script>
