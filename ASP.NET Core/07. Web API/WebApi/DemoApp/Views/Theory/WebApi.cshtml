@@ -3,48 +3,198 @@
     ViewData["Title"] = "Web Api";
 }
 
-    <div>
-        <h1 class="display-3 text-center">Web Api</h1>
+<div>
+    <h1 class="display-3 text-center">Web Api</h1>
 
-        <div class="mt-3">
-            <ul>
-                <li class="mt-2">
-                    Web API is an <strong>application programming interface</strong> used by Web Browsers (SPA), Mobile Applications, Games, Desktop Applications, Web Server, etc
-                </li>
-                <li class="mt-2">
-                    <strong>Server-side Web APIs</strong> consist of publicly exposed <strong>endpoints</strong>
-                </li>
-                <li class="mt-2">
-                    The endpoints correspond to a defined request-response message system
-                </li>
-                <li class="mt-2">
-                    Communication is typically expressed in <code>JSON</code> or <code>XML</code> format
-                </li>
-                <li class="mt-2">
-                    Communication is performed over a web protocol (HTTP)
-                </li>
-            </ul>
-        </div>
-
-        <div class="mt-3">
-            <h2 class="text-center">For ASP.NET Core API, there are some conventions to know</h2>
-            <ul>
-                <li class="mt-2">
-                    <span>Over the <code>controller</code>, we put 2 attributes</span>
-                    <ul>
-                        <li><code>[ApiController]</code></li>
-                        <li><code>[Route("[controller]")]</code></li>
-                    </ul>
-                </li>
-                <li class="mt-2">
-                    The name of the action is not that important. Over each action, we put the attribute (<code>[HttpGet], [HttpPost], etc</code>), corresponding to the method we are trying to access 
-                </li>
-                <li class="mt-2">
-                    An API controller inherits <code>BaseController</code>
-                </li>
-                <li class="mt-2">
-                    If we want to make the whole project a Web API, we can put the attribute <code>[assembly: ApiController]</code> over the namespace of <code>Startup.cs</code>
-                </li>
-            </ul>
-        </div>
+    <div class="mt-3">
+        <ul>
+            <li class="mt-2">
+                Web API is an <strong>application programming interface</strong> used by Web Browsers (SPA), Mobile Applications, Games, Desktop Applications, Web Server, etc
+            </li>
+            <li class="mt-2">
+                <strong>Server-side Web APIs</strong> consist of publicly exposed <strong>endpoints</strong>
+            </li>
+            <li class="mt-2">
+                The endpoints correspond to a defined request-response message system
+            </li>
+            <li class="mt-2">
+                Communication is typically expressed in <code>JSON</code> or <code>XML</code> format
+            </li>
+            <li class="mt-2">
+                Communication is performed over a web protocol (HTTP)
+            </li>
+        </ul>
     </div>
+
+    <div class="mt-3">
+        <h4 class="display-4 text-center mb-3">For ASP.NET Core API, there are some conventions to know</h4>
+        <ul>
+            <li class="mt-2">
+                <span>Over the <code>controller</code>, we put 2 attributes</span>
+                <ul>
+                    <li><code>[ApiController]</code></li>
+                    <li><code>[Route("[controller]")]</code></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                The name of the action is not that important. Over each action, we put the attribute (<code>[HttpGet], [HttpPost], etc</code>), corresponding to the method we are trying to access
+            </li>
+            <li class="mt-2">
+                An API controller inherits <code>BaseController</code>
+            </li>
+            <li class="mt-2">
+                If we want to make the whole project a Web API, we can put the attribute <code>[assembly: ApiController]</code> over the namespace of <code>Startup.cs</code>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mt-3">
+        <h4 class="display-4 text-center mb-3">[ApiController]</h4>
+        <ul>
+            <li class="mt-2">
+                <span>Automatic <code>HTTP 400</code> response for <strong>Model State Errors</strong></span>
+                <ul>
+                    <li>Model validation errors automatically trigger an HTTP 400 response</li>
+                    <li>No need to check <code>this.ModelState.IsValid</code></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <span>Attribute routing requirement</span>
+                <ul>
+                    <li>
+                        The attributes define the location of the parameter's value
+                    </li>
+                    <li>
+                        <code>[FromBody]</code>, <code>[FromForm]</code>, etc
+                    </li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <span>Binding source parameter inference</span>
+                <ul>
+                    <li>
+                        Attibute routing becomes a <strong>requirement</strong>
+                    </li>
+                    <li>
+                        A method of each action should be added - <code>[HttpGet]</code>, <code>[HttpPost]</code>, etc
+                    </li>
+                    <li>
+                        Over the controller should be added an attribute <code>[ApiController]</code>
+                    </li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <span>Mutlipart/Form-data request inference</span>
+                <ul>
+                    <li>
+                        Achieved by putting <code>[FromForm]</code> attribute on action parameterss
+                    </li>
+                    <li>
+                        <code>mutlipart/form-data</code> request content type is <strong>inferred</strong>
+                    </li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                Problem details responses for error status codes
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h4 class="display-4 text-center mb-3">The built-in features can be overwritten (not really recommended)</h4>
+        <p class="mb-1">
+            <code>services.AddControllersWithViews()</code>
+        </p>
+        <p class="mb-1">
+            <code>&nbsp;&nbsp;.ConfigureApiBehaviorOptions(options =></code>
+        </p>
+        <p class="mb-1">
+            <code>{</code>
+        </p>
+        <p class="mb-1">
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;// Suppress Multipart/form-data inference</code>
+            </span>
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;options.SuppressConsumesConstraintForFormFileParameters = true;</code>
+            </span>
+        </p>
+        <p class="mb-1">
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;// Suppress binding source attributes</code>
+            </span>
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;options.SuppressInferBindingSourcesForParameters = true;</code>
+            </span>
+        </p>
+        <p class="mb-1">
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;// Suppress automatic HTTP 400 errors</code>
+            </span>
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;options.SuppressModelStateInvalidFilter = true;</code>
+            </span>
+        </p>
+        <p class="mb-1">
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;// Suppress problem details responses</code>
+            </span>
+            <span class="d-block">
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;options.SuppressMapClientErrors = true;</code>
+            </span>
+        </p>
+        <p class="mb-1">
+            <code>});</code>
+        </p>
+    </div>
+
+    <div class="mt-3">
+        <h4 class="display-4 text-center mb-3">ProblemDetails</h4>
+        <ul>
+            <li class="mt-2">
+                Since ASP.NET Core 2.2 errors are transformes error results into <strong>ProblemDetails</strong>
+            </li>
+            <li class="mt-2">
+                ProblemDetails is a type, based on HTTP Api Specification for error presentation
+            </li>
+            <li class="mt-2">
+                A standardized format for machine-readable error details
+            </li>
+        </ul>
+    </div>
+
+    <div class="mt-3">
+        <h4 class="display-4 text-center mb-3">RESTful API</h4>
+        <h6 class="text-center mb-3 text-danger">It's recommended to use <code>@("ActionResult<MyType>")</code> as a return type and to use <strong>async</strong> methods where possible</h6>
+        <ul>
+            <li class="mt-2">
+                <span><code>GET</code></span>
+                <ul>
+                    <li><code>[HttpGet]</code> - for listing all the entities</li>
+                    <li><code>[HttpGet({"{id}"})]</code> - for single entity</li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <span><code>CREATE</code></span>
+                <ul>
+                    <li><code>[HttpPost]</code> - for creating a new entity</li>
+                    <li><code>CreatedAtAction("Get", new { id = entity.Id }, entity)</code> - return as a response</li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <span><code>UPDATE</code></span>
+                <ul>
+                    <li><code>[HttPut({"{id}"})]</code> - for an undate of an entity</li>
+                    <li><code>return NoContent();</code> - response is <code>HTTP 204 (No Content)</code></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <span><code>DELETE</code></span>
+                <ul>
+                    <li><code>[HttpDelete({"{id}"})]</code> - for deleting an entity</li>
+                    <li><code>return entity;</code></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

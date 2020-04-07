@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "CORS";
+}
+
+    <div>
+        <h1 class="display-3 text-center mb-3 mt-3">CORS (Cross Origin Resource Sharing)</h1>
+
+        <div>
+            <div class="mt-3">
+                <h3 class="display-4 text-center mb-3">What CORS means by itself?</h3>
+                <ul>
+                    <li class="mb-2">Browser security prevents a web page to make a request to a different domain</li>
+                    <li class="mb-2"><strong>SOP (same-origin policy)</strong> - is a restrictions for a domain, that is different from the one that server the given web page</li>
+                    <li class="mb-2">This policy prevents malicious sites from reading data from your web application</li>
+                    <li class="mb-2">Sometimes, there is a need to allow other websites to get data from your application. The <strong>CORS</strong> principle is used here.</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <h3 class="display-4 text-center mb-3">CORS</h3>
+                <ul>
+                    <li class="mb-2">CORS is W3C standard, which allows to avoid the SOP</li>
+                    <li class="mb-2">The browser (only) asks the given address, where we want to send a request, whether the request is allowed or no.</li>
+                    <li class="mb-2">
+                        <span>Using CORS, we can control:</span>
+                        <ul>
+                            <li>which <strong>headers</strong> are allowed</li>
+                            <li>which <strong>methods</strong> are allowed</li>
+                            <li>which <strong>origins</strong> are allowed to make a request</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        <span>Origin contains:</span>
+                        <ul>
+                            <li><code>http/https</code> - protocol</li>
+                            <li><code>domain</code></li>
+                            <li><code>port</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <h3 class="display-4 text-center mb-3">CORS in ASP.NET Core</h3>
+                <ul>
+                    <li class="mb-2">
+                        <span>We can setup CORS in ASP.NET Core with:</span>
+                        <ul>
+                            <li><strong>globally</strong> - with a middleware</li>
+                            <li><strong>per controller/action</strong> - with an attribute</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        <span>Global setup</span>
+                        <ul>
+                            <li>Add <code>services.AddCors()</code> in <code>ConfigureServices()</code></li>
+                            <li>Add <code>app.UseCors(builder => builder.WithOrigins("http://example.com"))</code> in <code>Configure()</code></li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        <span>Controller/Action setup</span>
+                        <ul>
+                            <li><code>[EnableCors("AllowSpecificOrigin")]</code> - enabling CORS</li>
+                            <li><code>[DisbaleCors]</code> - disabling CORS</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+

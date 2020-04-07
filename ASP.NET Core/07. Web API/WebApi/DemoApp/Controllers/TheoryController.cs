@@ -18,5 +18,10 @@ namespace DemoApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Cors()
+        {
+            return View();
+        }
     }
 }
