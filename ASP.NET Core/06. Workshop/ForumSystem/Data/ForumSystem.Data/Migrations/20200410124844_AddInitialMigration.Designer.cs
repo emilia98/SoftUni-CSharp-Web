@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ForumSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200409162636_AddInitialMigration")]
+    [Migration("20200410124844_AddInitialMigration")]
     partial class AddInitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
