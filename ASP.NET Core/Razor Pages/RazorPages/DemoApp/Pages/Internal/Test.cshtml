@@ -1,0 +1,12 @@
+﻿@page "/softuni/{name:cyrillic}"
+@*@page "/softuni/{name:alpha:minlength(3)}/{title:regex(^[0-9]{{3}}-[a-z]{{3}}$)}"*@
+@model DemoApp.TestModel
+@{
+    ViewData["Title"] = "Test";
+}
+
+<div>
+    <h1 class="display-3 text-center">Test</h1>
+    <h2 class="display-4 text-center">Hello, @Model.Name!</h2>
+</div>
+

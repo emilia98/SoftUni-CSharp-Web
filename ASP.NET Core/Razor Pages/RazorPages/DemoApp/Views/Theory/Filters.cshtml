@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Filters";
+}
+
+<div>
+    <h1 class="display-3 text-center">Filters</h1>
+
+    <div>
+        <ul>
+            <li class="mt-2">
+                Razor Page filters <strong><code>IPageFilter</code></strong> and <strong><code>IAsyncPageFilter</code></strong>
+            </li>
+            <li class="mt-2">
+                Razor Page filters <strong>can't</strong> be applied to individual page
+            </li>
+            <li class="mt-2">
+                Razor Page filters have access to <strong><code>HttpContext</code></strong>
+            </li>
+            <li class="mt-2">
+                <span>Available methods to override</span>
+                <ul>
+                    <li class="mt-2">
+                        <strong><code>OnPageHandlerSelected</code></strong> - After a handler (OnGet, OnPost) has been selected and before model binding
+                    </li>
+                    <li class="mt-2">
+                        <strong><code>OnPageHandlerExecuting</code></strong> - Before the handler executes and after the model binding
+                    </li>
+                    <li class="mt-2">
+                        <strong><code>OnPageHandlerExecuted</code></strong> - After the handler executes and before the action result
+                    </li>
+                    <li class="mt-2">
+                        <strong><code>OnPageHandlerSelectionAsync</code></strong> - After the handler has been selected, but before the model binding (async version of <code>OnPageHandlerSelected</code>)
+                    </li>
+                    <li class="mt-2">
+                        <strong><code>OnPageHandlerExecutionAsync</code></strong> - Before the handler is invoked, after the model binding (async version of OnPageHandlerExecuting)
+                    </li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <span>A Custom Razor Page can be overwrited inside the Controller of the Razor Page</span>
+                <div class="mt-2">
+                    <span class="d-block">
+                        <code>public override async Task OnPageHandlerExecutionAsync(</code>
+                    </span>
+                    <span class="d-block">
+                        <code>&nbsp;&nbsp;PageHandlerExecutingContext context,</code>
+                    </span>
+                    <span class="d-block">
+                        <code>&nbsp;&nbsp;PageHandlerExecutionDelegate next)</code>
+                    </span>
+                    <span class="d-block">
+                        <code>{</code>
+                    </span>
+                    <span class="d-block">
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;// Before page handler</code>
+                    </span>
+                    <span class="d-block">
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;await next();</code>
+                    </span>
+                    <span class="d-block">
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;// After page handler</code>
+                    </span>
+                    <span class="d-block">
+                        <code>}</code>
+                    </span>
+                </div>
+            </li>
+            <li class="mt-2">
+                <span>A Custom Filter in Razor Page:</span>
+                <ul>
+                    <li class="mt-2">
+                        Create a class, that implements either <strong><code>IAsyncPageFilter</code></strong> or <strong><code>IPageFilter</code></strong>. Depending which interface you do implement, override one or methods.
+                    </li>
+                    <li class="mt-2">
+                        <span>The filter is registered in <code>Startup.cs</code>, in <code>ConfigureServices()</code>, in </span>
+                        <div class="mt-2">
+                            <span class="d-block">
+                                <code>services.AddControllersWithViews(options =></code>
+                            </span>
+                            <span class="d-block">
+                                <code>{</code>
+                            </span>
+                            <span class="d-block">
+                                <code>&nbsp;&nbsp;options.Filters.Add(new MyCustomPageFilter());</code>
+                            </span>
+                            <span class="d-block">
+                                <code>});</code>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

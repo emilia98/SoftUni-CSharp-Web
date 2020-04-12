@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Binding";
+}
+
+<div>
+    <h1 class="display-3 text-center">Binding</h1>
+
+    <div>
+        <ul>
+            <li>
+                When submitting the post request, the properties int the model are not binded automatically. This resolves a security problem.
+            </li>
+            <li>
+                If we want to bind the data (model is threated as an input Model, not only as a view model), add the attribute <code>[BindProperty]</code> to each property, we want to bind
+            </li>
+            <li>
+                The properties from the query or from the route <strong>are not binded automatically</strong>.
+                In the contact form, if we have <code>/ContactForm?Name=Pesho</code>, the result won't be the page ContactFrom with already filled input field Name.
+            </li>
+            <li>
+                If we want to allow this action, we should add attribute <code>[BindProperty(SupportsGet = true)]</code> over the given property in the model
+            </li>
+        </ul>
+    </div>
+</div>
