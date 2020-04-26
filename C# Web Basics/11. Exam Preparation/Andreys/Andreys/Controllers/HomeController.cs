@@ -21,12 +21,12 @@
 
         public HttpResponse Index()
         {
-            var products = this.productsService.GetAll();
-            return this.View(products, "Home");
             if (this.IsUserLoggedIn())
             {
-                
+                var products = this.productsService.GetAll();
+                return this.View(products, "Home");
             }
+
             return this.View();
         }
     }

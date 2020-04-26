@@ -37,6 +37,13 @@ namespace Andreys.Services
             return product.Id;
         }
 
+        public void DeleteById(int id)
+        {
+            var product = this.GetById(id);
+            this.dbContext.Products.Remove(product);
+            this.dbContext.SaveChanges();
+        }
+
         public IEnumerable<ProductViewModel> GetAll() =>
             this.dbContext.Products.Select(p => new ProductViewModel
             {
@@ -45,5 +52,10 @@ namespace Andreys.Services
                 ImageUrl = p.ImageUrl,
                 Price = p.Price,
             }).ToArray();
+
+        public Product GetById(int id)
+        {
+            return this.dbContext.Products.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Andreys.ViewModels.Products;
+﻿using Andreys.Models;
+using Andreys.ViewModels.Products;
 using System.Collections.Generic;
 
 namespace Andreys.Services
@@ -8,5 +9,9 @@ namespace Andreys.Services
         int Add(ProductAddInputModel productAddInputModel);
 
         IEnumerable<ProductViewModel> GetAll();
+
+        Product GetById(int id);
+
+        void DeleteById(int id);
     }
 }

@@ -8,6 +8,7 @@ namespace Andreys.Controllers
     public class UsersController : Controller
     {
         private readonly IUsersService usersService;
+        private readonly string loginUrl = "/Users/Login";
 
         public UsersController(IUsersService usersService)
         {
@@ -16,12 +17,22 @@ namespace Andreys.Controllers
 
         public HttpResponse Login()
         {
+            if(this.IsUserLoggedIn())
+            {
+                return this.Redirect("/");
+            }
+
             return this.View();
         }
 
         [HttpPost]
         public HttpResponse Login(LoginInputModel input)
         {
+            if (this.IsUserLoggedIn())
+            {
+                return this.Redirect("/");
+            }
+
             var userId = this.usersService.GetUserId(input.Username, input.Password);
 
             if(userId != null)
@@ -35,12 +46,22 @@ namespace Andreys.Controllers
 
         public HttpResponse Register()
         {
+            if (this.IsUserLoggedIn())
+            {
+                return this.Redirect("/");
+            }
+
             return this.View();
         }
 
         [HttpPost]
         public HttpResponse Register(RegisterInputModel input)
         {
+            if (this.IsUserLoggedIn())
+            {
+                return this.Redirect("/");
+            }
+
             if (string.IsNullOrWhiteSpace(input.Email))
             {
                 return this.Error("Email cannot be empty");
@@ -77,6 +98,11 @@ namespace Andreys.Controllers
 
         public HttpResponse Logout()
         {
+            if (!this.IsUserLoggedIn())
+            {
+                return this.Redirect(this.loginUrl);
+            }
+
             this.SignOut();
             return this.Redirect("/");
         }
