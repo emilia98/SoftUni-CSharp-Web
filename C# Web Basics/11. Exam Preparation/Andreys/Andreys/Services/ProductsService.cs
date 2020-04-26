@@ -44,6 +44,6 @@ namespace Andreys.Services
                 Name = p.Name,
                 ImageUrl = p.ImageUrl,
                 Price = p.Price,
-            }).ToList();
+            }).ToArray();
     }
 }
